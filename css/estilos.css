@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:900|Signika');
+
+@font-face {
+    font-family: 'norwester';
+    src: url('fonts/norwester.eot');
+    src: url('fonts/norwester.eot?#iefix') format('embedded-opentype'),
+         url('fonts/norwester.woff') format('woff'),
+         url('fonts/norwester.ttf') format('truetype'),
+         url('fonts/norwester.svg#On-AirInline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Generales y Resets */
+
+* {
+    -webkit-padding:0;
+    -webkit-margin:0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e6e6e6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Signika';
+}
+
+hr {
+    width:960px;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+p, li, ul {
+    font-family: 'Signika';
+    color: #444444;
+}
+
+h1 {
+    font-family: 'norwester';
+}
+
+strong {
+    color:darkslategray;
+}
+
+table {
+    margin:0 auto;
+    width:960px;
+}
+
+.centrado {
+    margin:0 auto;
+    width:960px;
+    text-align:center;
+}
+
+/* Partículas.js */
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.3); /*dim the background*/
+}
+
+.genji {
+    background-image:url('../img/genji.png');
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.rectangulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navegacion */
+
+.content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 22px;
+    width: 300px;
+    padding: 2em;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    z-index: 5;
+    text-align: center;
+    height: 39px;
+}
+
+.content button {
+    margin-left:1em;
+    margin-right:1em;
+    padding:10px 20px;
+}
+
+nav a {
+    color: #4d8ac9;
+    text-decoration: none;
+    transition: 0.35s all;
+    padding: 1em;
+    display: inline-block;
+}
+
+nav a:hover {
+    opacity:0.5;
+}
+
+nav {
+    text-align:right;
+    height:100px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    font-family: 'Signika';
+    display:inline-block;
+    margin-right:20px;
+}
+
+/* Footer */
+
+footer {
+    height:100px;
+    background-color:lightgray;
+    text-align:center;
+}
+
+footer p {
+	padding-top:40px;
+}
+
+/* ------ Formulario & inputs ------ */
+
+input {
+    padding:10px 20px;
+    border:none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+#lupa{
+    height: 50px;
+    margin-left: 10px;
+    background-color: #e8c722;
+    border: solid 2px rgba(255,255,255,0);
+    transform: skew(-0.15rad);
+}
+
+#lupa:hover{
+    opacity:0.75;
+    cursor:pointer;
+}
+
+#battletag {
+    transform: skew(-0.15rad);
+    height: 25px;
+    font-size: 16px;
+    border: solid 2px rgba(255,255,255,0);
+    transition: 0.35s border;
+}
+
+#battletag:focus {
+    border: solid 2px #4d8acb;
+}
+
+
+/* Divs y contenedores */
+
+.botones {
+    display:inline-block;
+}
+
+.boton {
+    padding:1em;
+    background-color:gray;
+}
+
+.profileName {
+    color:#6389c7;
+    position: relative;
+    top: -9px;
+    font-size:24px;
+}
+
+.ninesixty {
+    width:960px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.niko {
+    margin:0 auto;
+    width:960px;
+    text-align:center;   
+}
+
+.niko p {
+    padding-left:20px;
+}
+
+.logo{
+	width:960px;
+	height:300px;
+	background-image: url('../img/anabg.jpg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	margin:0 auto;
+}
+
+.formulario {
+    width:50%;
+    margin:2em auto;
+    text-align:center;
+}
+
+/* Imagenes sacadas de rango y perfil*/
+
+.imgRango {
+    width:35px;
+}
+
+.imgMarco {
+    width:120px;
+    z-index:2;
+}
+
+.notasParche {
+	border-radius:10px;
+    display: block;
+    padding: 2em;
+    width: 960px;
+    background-color: #f3f3f3;
+    height: 400px;
+    overflow-y: scroll;
+    margin: 1em auto;
+}
+
+.notasParche h1, h2 {
+	font-family:'Norwester';
+}
+
+.notasParche h1 {
+    color:tomato;
+}
+
+.notasParche h2 {
+    color:#b5321b;
+}
+
+.warning h3 {
+    font-weight: lighter;
+    color:#a0a0a0;
+}
+
+.busqueda {
+    width: 370px;
+    height: 120px;
+    padding: 20px;
+    margin:0 auto;
+}
+
+.battletag, .avatar, .datos {
+    float:left;
+}
+
+.battletag {
+    padding-top:37px;
+    padding-right:15px;
+}
+
+.datos p {
+    margin-top: 44px;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.levelframe {
+    position: absolute;
+    margin-top: -33px;
+    margin-left: -26px;
+    width: 170px;
+}
+
+.imgPerfil {
+    border-radius: 999px;
+    width: 80px;
+    z-index: 1;
+    margin-top: 14px;
+    margin-left: 20px;
+}
+
+.desplegable {
+    padding:2em;
+    margin-bottom:1em;
+    background-color:lightgray;
+}
+
+/* Preloader */
+
+.preloader {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('../img/preloader.gif') 
+                50% 50% 
+                no-repeat;
+}
