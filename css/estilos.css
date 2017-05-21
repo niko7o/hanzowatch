@@ -32,7 +32,9 @@ hr {
     width:960px;
 }
 
-p {
+ul, ol { box-sizing: border-box; padding:0; margin: 0 }
+
+p, ul {
     display: block;
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
@@ -58,13 +60,25 @@ table {
     width:960px;
 }
 
-.centrado {
+.centrado960 {
+    display:block;
     margin:0 auto;
     width:960px;
     text-align:center;
 }
 
 /* Partículas.js */
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index:-1;
+}
 
 .overlay {
     position: absolute;
@@ -73,14 +87,7 @@ table {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: rgba(0,0,0,0.3); /*dim the background*/
-}
-
-.genji {
-    background-image:url('../img/genji.png');
-    background-position: center;
-    background-repeat:no-repeat;
-    background-size:cover;
+    background-color: rgba(0,0,0,0.3);
 }
 
 .rectangulo {
@@ -122,6 +129,10 @@ table {
     padding:10px 20px;
 }
 
+nav {
+    text-align:center;
+}
+
 nav a {
     color: #4d8ac9;
     text-decoration: none;
@@ -129,15 +140,10 @@ nav a {
     padding: 1em;
     display: inline-block;
 }
+    nav a:hover {
+        opacity:0.5;
+    }
 
-nav a:hover {
-    opacity:0.5;
-}
-
-nav {
-    text-align:right;
-    height:100px;
-}
 
 nav ul li {
     text-transform: uppercase;
@@ -170,6 +176,7 @@ textarea:focus, input:focus{
 }
 
 #lupa{
+    border-radius:7px;
     height: 50px;
     margin-left: 10px;
     background-color: #e8c722;
@@ -184,7 +191,7 @@ textarea:focus, input:focus{
 
 #battletag {
     transform: skew(-0.15rad);
-    height: 25px;
+    height: 45px;
     font-size: 16px;
     border: solid 2px rgba(255,255,255,0);
     transition: 0.35s border;
@@ -197,133 +204,124 @@ textarea:focus, input:focus{
 
 /* Divs y contenedores */
 
-.botones {
-    display:inline-block;
-}
-
-.boton {
-    padding:1em;
-    background-color:gray;
-}
-
-.profileName {
-    color:#6389c7;
-    position: relative;
-    top: -9px;
-    font-size:24px;
-}
-
-.ninesixty {
-    width:960px;
-    margin:0 auto;
-    text-align:center;
-}
-
-.niko {
-    margin:0 auto;
-    width:960px;
-    text-align:center;   
-}
-
-.niko p {
-    padding-left:20px;
-}
-
-.logo{
-	width:960px;
-	height:300px;
-	background-image: url('../img/anabg.jpg');
-	background-size:cover;
-	background-repeat:no-repeat;
-	margin:0 auto;
-}
-
-.formulario {
-    width:50%;
-    margin:2em auto;
-    text-align:center;
-}
-
-/* Imagenes sacadas de rango y perfil*/
-
-.imgRango {
-    width:35px;
-}
-
-.imgMarco {
-    width:120px;
-    z-index:2;
-}
-
-.notasParche {
-	border-radius:10px;
-    display: block;
-    padding: 2em;
-    width: 960px;
-    background-color: #f3f3f3;
-    height: 400px;
-    overflow-y: scroll;
+#logo{
+    width: 213px;
     margin: 1em auto;
+    display: block;
 }
 
-.notasParche h1, h2 {
-	font-family:'Norwester';
-}
-
-.notasParche h1 {
-    color:tomato;
-}
-
-.notasParche h2 {
-    color:#b5321b;
-}
-
-.warning h3 {
-    font-weight: lighter;
-    color:#a0a0a0;
-}
-
-.busqueda {
-    width: 370px;
-    height: 120px;
-    padding: 20px;
+.heroes {
     margin:0 auto;
+    width:960px;
+    height:287px;
 }
 
-.battletag, .avatar, .datos {
+#playerResults {
+    margin:0 auto;
+    width:960px;
+    height:325px;
+    text-align:center;
+}
+
+#playerResults #competitive .title, #playerResults #quickplay .title {
+    text-transform:uppercase;
+    font-weight:bold;
+    width: 100%;
+    margin: 18px auto;
+    text-align: center;
+    display: block;
+}
+
+#playerResults #competitive ul li, #playerResults #quickplay ul li {
+    list-style:none;
+}
+
+#playerResults #competitive ul li, #playerResults #quickplay ul li {
+    width:100%;
+}
+
+#playerResults #competitive {
+    background-color:#e8c722;
+    width:470px;
+    height:57px;
+    float:left;
+    margin-left:10px;
+}
+    #playerResults #competitive ul li:nth-child(odd) {
+        padding-top: 20px;
+        box-sizing: border-box; 
+        height:57px;
+        background-color:#fcea91;
+    }
+    #playerResults #competitive ul li:nth-child(even) {
+        padding-top: 20px;
+        box-sizing: border-box; 
+        height:57px;
+        background-color:#e0ce77;
+    }
+
+#playerResults #quickplay {
+    background-color:#c8c8c8;
+    width:470px;
+    height:57px;
+    float:left;
+    margin-right:10px;
+}
+    #playerResults #quickplay ul li:nth-child(odd) {
+        padding-top: 20px;
+        box-sizing: border-box; 
+        height:57px;
+        background-color:#dedede;
+    }
+    #playerResults #quickplay ul li:nth-child(even) {
+        padding-top: 20px;
+        box-sizing: border-box; 
+        height:57px;
+        background-color:#cfcaca;
+    }
+
+#gameResults, .heroResults {
+    width:960px;
+    height:314px;
+    margin:2em auto;
+    display:block;
+}
+    
+#gameResults #avatar, .heroResults #avatar {
+    background-color:#ffba00;
+    display:inline-block;
+    float:left;
+    width:90px;
+    height:314px;
+}
+
+#gameResults #champion, .heroResults #champion {
+    background-color:#c7c7c7;
+    display:inline-block;
+    float:left;
+    width:870px;
+    height:108px;
+}
+
+#gameResults #data, .heroResults #data {
+    background-color:white;
+    display:inline-block;
+    float:left;
+    width:870px;
+    height:206px;
+}
+
+#data p {
+    padding: 15.7px;
+    display: block;
+    width: 22%;
     float:left;
 }
 
-.battletag {
-    padding-top:37px;
-    padding-right:15px;
-}
-
-.datos p {
-    margin-top: 44px;
-    font-size: 18px;
-    margin-left: 15px;
-}
-
-.levelframe {
-    position: absolute;
-    margin-top: -33px;
-    margin-left: -26px;
-    width: 170px;
-}
-
-.imgPerfil {
-    border-radius: 999px;
-    width: 80px;
-    z-index: 1;
-    margin-top: 14px;
-    margin-left: 20px;
-}
-
-.desplegable {
-    padding:2em;
-    margin-bottom:1em;
-    background-color:lightgray;
+#champion h1 {
+    padding-top: 28px;
+    padding-left: 45px;
+    font-size: 22px;
 }
 
 /* Preloader */

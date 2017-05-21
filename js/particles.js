@@ -27,7 +27,7 @@ var Particles = (function(window, document) {
         selector: null,
         maxParticles: 100,
         sizeVariations: 6,
-        speed: 0.5,
+        speed: 0.2,
         color: '#DFFE00',
         minDistance: 120,
         connectParticles: true
