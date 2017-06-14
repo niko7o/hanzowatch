@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Hanzowatch</title>
@@ -8,8 +7,9 @@
     <meta name="keywords" content="HTML,CSS,PHP,JavaScript">
     <meta name="author" content="Nikolaas Verlee">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
 </head>
     
 <body>
@@ -27,21 +27,22 @@
     <!-- Player search form -->
     <div class="centrado960">
         <?php
-            $player = $_GET['player']; //recogemos el battletag dado
-            $region = 'eu'; //we only work with Europe until playerbase extends
+            $player = $_GET['player'];
+            $region = 'eu'; // we only work with Europe until webapp playerbase extends
         ?>
         <h3 id="variableText">
             <?php
-            if(!isset($player)){ //control flow if they come from an already-existing query or first query ever
-                echo "Use - instead of # for your BattleTag.";
+            if(!isset($player)){ // control flow if they come from an already-existing query or first query ever
+                echo "<span>Use - instead of # for your BattleTag.</span>";
             } else {
-                echo "Feel free to look up other players!";
+                echo "<span>Feel free to look up other players!</span>";
             }
             ?>
         </h3>
         <form id="battletag" action="index.php" method="get">
-            BattleTag: <input type="text" name="player" id="battletagplayer" placeholder="User-2122">
-        <input type="submit" id="lupa" value="Search">
+            BattleTag:
+            <input type="text" name="player" id="battletagplayer" placeholder="User-2122">
+            <input type="submit" id="lupa" value="Search">
         </form>
     </div>
     
@@ -51,19 +52,22 @@
     </div>
 
 <?php
-    $response = requestAPI("http://owapi.net/api/v3/u/".$player."/blob"); //cURL call to the owAPI
-    $response = json_decode($response); //we decode the json object received from requestAPI
+    $response = requestAPI("http://owapi.net/api/v3/u/".$player."/blob"); // cURL call to the owAPI
+    $response = json_decode($response); // decode the json object received from requestAPI
     
-	$data = $response; //we assign the object to our $data variable
+	$data = $response; // assign the object to our $data variable
 
-    //we shorten the variables with route shortcuts
+    // shorten the variables with route shortcuts
 	$competitive_overall_stats = $data->$region->stats->competitive->overall_stats;
 	$competitive_game_stats = $data->$region->stats->competitive->game_stats;
 	$quickplay_overall_stats = $data->$region->stats->quickplay->overall_stats;
 	$quickplay_game_stats = $data->$region->stats->quickplay->game_stats;
 
-    if(isset($player)){ //do we have a battletag to search for?
+    if(isset($player) && $data != ''){ // do we have a battletag to search for?
 ?>
+
+    <!-- Heroes -->
+    <div id="information">
         <div id="playerResults">
             <div id="competitive">
                 <span class="title">Competitive</span>
@@ -85,62 +89,72 @@
             </div>
         </div>
 
+        <div id="filter">
+            <input type="text" id="hero-filter" onkeyup="searchHero()" placeholder="Search for a specific hero..">
+        </div>
+
         <?php
-            //array + foreach para recorrer datos variables de campeones
+            //we store all the champions manually in an array and find the player's performance with each one
             $champions = array("reinhardt","tracer","zenyatta","junkrat","mccree","winston","orisa","hanzo","pharah","roadhog","zarya","torbjorn","mercy","mei","ana","widowmaker","genji","reaper","soldier76","bastion","symmetra","dva","sombra","lucio");
-            
+
+            echo "<ul id='hero-stats'>";
             foreach ($champions as $champion) {
-                echo "<div class='hero' id='".$champion."'>";
-                    echo "<div id='avatar'>";
-                        //we load the avatars via css
-                    echo "</div>";
-                    echo "<div id='champion'><h1>" .$champion. "</h1></div>";
-             
-                    echo "<div id='data'>";
-                        echo "<p> Eliminations: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations."</p>";
-                        echo "<p> Deaths: ".$data->$region->heroes->stats->competitive->$champion->general_stats->deaths."</p>";
-                        echo "<p> Total damage: ".$data->$region->heroes->stats->competitive->$champion->general_stats->damage_done."</p>";
-                        echo "<p style='color:green'> Win ratio: ". 100*$data->$region->heroes->stats->competitive->$champion->general_stats->win_percentage."%</p>";
+                    echo "<li class='hero' id=".$champion.">";
+                        echo "<div>";
+                            echo "<div id='avatar'></div>";
+                            echo "<div id='champion'><h1>" .$champion. "</h1></div>";
+                     
+                            echo "<div id='data'>";
+                                echo "<p> Eliminations: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations."</p>";
+                                echo "<p> Deaths: ".$data->$region->heroes->stats->competitive->$champion->general_stats->deaths."</p>";
+                                echo "<p> Total damage: ".$data->$region->heroes->stats->competitive->$champion->general_stats->damage_done."</p>";
+                                echo "<p style='color:green'> Win ratio: ". 100*$data->$region->heroes->stats->competitive->$champion->general_stats->win_percentage."%</p>";
 
-                        echo "<p> Games played: ".$data->$region->heroes->stats->competitive->$champion->general_stats->games_played."</p>";
-                        echo "<p> Games won: ".$data->$region->heroes->stats->competitive->$champion->general_stats->games_won."</p>";
-                        echo "<p style='color:orange'> K/D: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations_per_life."</p>";
-                        echo "<p> Most damage: ". $data->$region->heroes->stats->competitive->$champion->general_stats->damage_done_most_in_game."</p>";
+                                echo "<p> Games played: ".$data->$region->heroes->stats->competitive->$champion->general_stats->games_played."</p>";
+                                echo "<p> Games won: ".$data->$region->heroes->stats->competitive->$champion->general_stats->games_won."</p>";
+                                echo "<p style='color:orange'> K/D: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations_per_life."</p>";
+                                echo "<p> Most damage: ". $data->$region->heroes->stats->competitive->$champion->general_stats->damage_done_most_in_game."</p>";
 
-                        echo "<p> Eliminations: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations."</p>";
-                        echo "<p> Deaths: ".$data->$region->heroes->stats->competitive->$champion->general_stats->deaths."</p>";
-                        echo "<p> Total damage: ".$data->$region->heroes->stats->competitive->$champion->general_stats->damage_done."</p>";
-                        echo "<p> Win ratio: ". 100*$data->$region->heroes->stats->competitive->$champion->general_stats->win_percentage."%</p>";
-                    echo "</div>";
-                echo "</div>";
+                                echo "<p> Eliminations: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations."</p>";
+                                echo "<p> Deaths: ".$data->$region->heroes->stats->competitive->$champion->general_stats->deaths."</p>";
+                                echo "<p> Total damage: ".$data->$region->heroes->stats->competitive->$champion->general_stats->damage_done."</p>";
+                                echo "<p> Win ratio: ". 100*$data->$region->heroes->stats->competitive->$champion->general_stats->win_percentage."%</p>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</li>";
                 $champion++; //we have printed all the info for champìon, let's go to the next one
             }
+            echo "</ul>";
+        echo "</div>"; //information
         }
 
-	function requestAPI($url) { //funcion de cURL con sus opciones
-	    $options = array(
-	        CURLOPT_RETURNTRANSFER => true,   // return web page
-	        CURLOPT_HEADER         => false,  // don't return headers
-	        CURLOPT_FOLLOWLOCATION => true,   // follow redirects
-	        CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
-	        CURLOPT_ENCODING       => "",     // handle compressed
-	        CURLOPT_USERAGENT      => "Hanzowatch", // name of client
-	        CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
-	        CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
-	        CURLOPT_TIMEOUT        => 120,    // time-out on response
-    	);
+    	function requestAPI($url) { //funcion de cURL con sus opciones
+    	    $options = array(
+    	        CURLOPT_RETURNTRANSFER => true,   // return web page
+    	        CURLOPT_HEADER         => false,  // don't return headers
+    	        CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+    	        CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+    	        CURLOPT_ENCODING       => "",     // handle compressed
+    	        CURLOPT_USERAGENT      => "Hanzowatch", // name of client
+    	        CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+    	        CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+    	        CURLOPT_TIMEOUT        => 120,    // time-out on response
+        	);
 
-        $ch = curl_init($url);
-        curl_setopt_array($ch, $options);
-        
-        $content  = curl_exec($ch);
-        curl_close($ch);
+            $ch = curl_init($url);
+            curl_setopt_array($ch, $options);
+            
+            $content  = curl_exec($ch);
+            curl_close($ch);
 
-        return $content;
-    }
-?>
+            return $content;
+        }
+    ?>
 
-<div class="preloader"></div>
+    <div class="transparent" style="display:block;width:100%;height:400px"></div>
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
 
 </body>
 </html>
