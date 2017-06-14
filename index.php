@@ -6,13 +6,14 @@
     <meta name="description" content="opensource overwatch tracker">
     <meta name="keywords" content="HTML,CSS,PHP,JavaScript">
     <meta name="author" content="Nikolaas Verlee">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/events.js"></script>
 </head>
     
 <body>
+
     <!-- Navigation -->
     <nav>
         <img src="img/logo.png" id="logo" alt="Hanzowatch" />
@@ -155,6 +156,11 @@
 
     <!-- Preloader -->
     <div class="preloader"></div>
+
+    <!-- Mobile -->
+    <div class="scrollTop"></div>
+    <div class="open-nav"><img src="img/nav.png"></div>
+    <div class="close-nav"><img src="img/close-nav.png"></div>
 
 </body>
 </html>

@@ -19,4 +19,20 @@ $(document).ready(function() {
 	    	}
 	    });
 	});
+
+	$('.open-nav').click(function(){
+		$('.open-nav').css('display','none');
+		$('.close-nav').css('display','block');
+		$('nav ul').show();
+	});
+
+	$('.close-nav').click(function(){
+		$('.close-nav').css('display','none');
+		$('.open-nav').css('display','block');
+		$('nav ul').hide();
+	});
+
+	$('.scrollTop').click(function(){
+		$('body').scrollTop(0);
+	});
 });

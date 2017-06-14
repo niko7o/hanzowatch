@@ -336,16 +336,28 @@ textarea:focus, input:focus{
                 no-repeat;
 }
 
+.scrollTop {display:none;}
+
 @media only screen and (max-width: 500px) {
     body {
        width:100%;
        height:auto;
+       overflow-x:hidden;
     }
 
-    ul, li, div {width:100%;}
+    ul, li {width:100%;}
+
+    .scrollTop:hover, .open-nav:hover, .close-nav:hover {cursor:pointer;}
 
     .centrado960 {width:100%;}
-    #battletag {height:unset;display:block;width:70%;margin:0 auto;}
+    
+    #battletag {
+        height:unset;
+        display:block;
+        width:70%;
+        margin:0 auto;
+    }
+    
     .heroes img {
         position: absolute;
         left: 50%;
@@ -354,7 +366,7 @@ textarea:focus, input:focus{
 
     #playerResults {
         width: 100%;
-        height: unset;
+        height: 285px;
     }
 
     #playerResults #competitive, #playerResults #quickplay {
@@ -364,7 +376,10 @@ textarea:focus, input:focus{
         margin-left: 0;
     }
 
-    #filter input {margin:1em;}
+    #filter input {
+        margin:1em;
+        border-radius: 8px;
+    }
 
     #gameResults, .hero {
         width: 100%;
@@ -395,7 +410,7 @@ textarea:focus, input:focus{
     }
 
     #data p {
-        font-size: 15px;
+        font-size: 14px;
         padding: 10px 0;
         display: inline-block;
         width: 50%;
@@ -403,4 +418,38 @@ textarea:focus, input:focus{
         text-align:center;
     }
 
+    #champion h1 {
+        padding-top: 16px;
+        padding-left:0;
+        font-size: 27px;
+        text-align: center;
+    }
+
+    input {
+        padding: 16px 20px;
+        margin-top: 10px;
+    }
+
+    #lupa {
+        margin-top:20px;
+    }
+
+    nav ul {
+        display:none;
+        transition:0.35s all;
+    }
+
+    .scrollTop {
+        display:block;
+        position:fixed;
+        bottom:10px;
+        right:10px;
+        background-color: tomato;
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+    }
+    
+    .close-nav {display:none;position:fixed;top:1em;right:1em;}
+    .open-nav {display:block;position:fixed;top:1em;right:1em;}
 }
