@@ -335,3 +335,72 @@ textarea:focus, input:focus{
                 50% 50% 
                 no-repeat;
 }
+
+@media only screen and (max-width: 500px) {
+    body {
+       width:100%;
+       height:auto;
+    }
+
+    ul, li, div {width:100%;}
+
+    .centrado960 {width:100%;}
+    #battletag {height:unset;display:block;width:70%;margin:0 auto;}
+    .heroes img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #playerResults {
+        width: 100%;
+        height: unset;
+    }
+
+    #playerResults #competitive, #playerResults #quickplay {
+        width: 50%;
+        margin: 0 auto 1em;
+        height: unset;
+        margin-left: 0;
+    }
+
+    #filter input {margin:1em;}
+
+    #gameResults, .hero {
+        width: 100%;
+        margin: 2em auto;
+        display: block;
+        height: 350px;
+    }
+
+    #gameResults #champion, .hero #champion {
+        background-color: #c7c7c7;
+        display: inline-block;
+        float: left;
+        width: 100%;
+        border-top: 7px solid orange;
+        height: 101px;
+    }
+
+    #gameResults #avatar, .hero #avatar {
+        display:none;
+    }
+
+    #gameResults #data, .hero #data {
+        background-color: white;
+        display: inline-block;
+        float: left;
+        width: 100%;
+        height: unset;
+    }
+
+    #data p {
+        font-size: 15px;
+        padding: 10px 0;
+        display: inline-block;
+        width: 50%;
+        float: left;
+        text-align:center;
+    }
+
+}
