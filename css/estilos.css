@@ -11,7 +11,7 @@
     font-style: normal;
 }
 
-/* Generales y Resets */
+/* Resets and generics */
 
 * {
     -webkit-padding:0;
@@ -67,18 +67,7 @@ table {
     text-align:center;
 }
 
-/* Partículas.js */
-
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  z-index:-1;
-}
+/* Preloader overlay */
 
 .overlay {
     position: absolute;
@@ -103,7 +92,7 @@ table {
     align-items: center;
 }
 
-/* Navegacion */
+/* Navigation */
 
 .content {
     position: fixed;
@@ -164,7 +153,7 @@ footer p {
 	padding-top:40px;
 }
 
-/* ------ Formulario & inputs ------ */
+/* ------ Form & inputs ------ */
 
 input {
     padding:10px 20px;
@@ -201,9 +190,6 @@ textarea:focus, input:focus{
     border: solid 2px #4d8acb;
 }
 
-
-/* Divs y contenedores */
-
 #logo{
     width: 213px;
     margin: 1em auto;
@@ -213,7 +199,7 @@ textarea:focus, input:focus{
 .heroes {
     margin:0 auto;
     width:960px;
-    height:287px;
+    height:286px;
 }
 
 #playerResults {
@@ -280,14 +266,14 @@ textarea:focus, input:focus{
         background-color:#cfcaca;
     }
 
-#gameResults, .heroResults {
+#gameResults, .hero {
     width:960px;
     height:314px;
     margin:2em auto;
     display:block;
 }
     
-#gameResults #avatar, .heroResults #avatar {
+#gameResults #avatar, .hero #avatar {
     background-color:#ffba00;
     display:inline-block;
     float:left;
@@ -295,15 +281,16 @@ textarea:focus, input:focus{
     height:314px;
 }
 
-#gameResults #champion, .heroResults #champion {
-    background-color:#c7c7c7;
-    display:inline-block;
-    float:left;
-    width:870px;
-    height:108px;
+#gameResults #champion, .hero #champion {
+    background-color: #c7c7c7;
+    display: inline-block;
+    float: left;
+    width: 870px;
+    border-top: 7px solid orange;
+    height: 101px;
 }
 
-#gameResults #data, .heroResults #data {
+#gameResults #data, .hero #data {
     background-color:white;
     display:inline-block;
     float:left;
@@ -312,17 +299,21 @@ textarea:focus, input:focus{
 }
 
 #data p {
-    padding: 15.7px;
+    font-size:13px;
+    padding: 17.7px;
     display: block;
-    width: 22%;
+    width: 182px;
     float:left;
 }
 
 #champion h1 {
-    padding-top: 28px;
+    padding-top: 24px;
     padding-left: 45px;
-    font-size: 22px;
+    font-size: 20px;
 }
+
+#reinhardt #avatar {background-image:url('../img/champions/reinhardt.jpg');background-repeat:no-repeat;background-position:center;}
+#tracer #avatar {background-image:url('../img/champions/tracer.jpg');background-repeat:no-repeat;background-position:center;}
 
 /* Preloader */
 
