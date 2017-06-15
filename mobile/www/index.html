@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>InAppBrowser.addEventListener Example</title>
-      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-      <script type="text/javascript" charset="utf-8">
-      document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() {
-          var ref = window.open('http://codeniko.com', '_blank', 'location=no');
-          ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-          ref.addEventListener('exit', function(event) { alert('Hanzowatch thanks you for using the app!'); });
-      }
-      </script>
-      <style>
-      body {
-        overflow: hidden;
-        -ms-content-zooming: none;
-      }
-      </style>
-      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-  </head>
+    <title>InAppBrowser.addEventListener Example</title>
 
-  <body style="overflow-x: hidden">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+         var ref = window.open('http://codeniko.com', '_blank', 'location=no');
+         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+         ref.addEventListener('exit', function(event) { alert('Hanzowatch thanks you for using the app!'); });
+    }
+
+    </script>
+  </head>
+  <body>
   </body>
 </html>

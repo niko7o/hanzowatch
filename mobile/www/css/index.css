@@ -43,8 +43,6 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
-    overflow-x: hidden;
-    -ms-content-zooming: none; }
 }
 
 /* Portrait layout (default) */
