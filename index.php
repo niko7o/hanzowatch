@@ -17,12 +17,14 @@
     <!-- Navigation -->
     <nav>
         <img src="img/logo.png" id="logo" alt="Hanzowatch" />
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="/forums" target="_blank">Forums</a></li>
-            <li><a href="patchnotes.php">Patchnotes</a></li>
-            <li><a href="counters.php">Counters</a></li>
-        </ul>
+        <div>
+            <ul>
+                <li><a href="index.php">Search</a></li>
+                <li><a href="/forums" target="_blank">Forums</a></li>
+                <li><a href="patchnotes.php">Patchnotes</a></li>
+                <li><a href="counters.php">Counters</a></li>
+            </ul>
+        </div>
     </nav>
     
     <!-- Player search form -->
@@ -34,9 +36,7 @@
         <h3 id="variableText">
             <?php
             if(!isset($player)){ // control flow if they come from an already-existing query or first query ever
-                echo "<span>Use - instead of # for your BattleTag.</span>";
-            } else {
-                echo "<span>Feel free to look up other players!</span>";
+                echo "<span>Replace # with - on your BattleTag.</span>";
             }
             ?>
         </h3>
@@ -64,11 +64,15 @@
 	$quickplay_overall_stats = $data->$region->stats->quickplay->overall_stats;
 	$quickplay_game_stats = $data->$region->stats->quickplay->game_stats;
 
-    if(isset($player) && $data != ''){ // do we have a battletag to search for?
-?>
-
-    <!-- Heroes -->
-    <div id="information">
+    if(isset($player)){ // do we have a battletag to search for?
+        if($quickplay_overall_stats->games == ''){ // if he hasn't played a single game he won't have stats -> ERROR
+            echo "<script>$('#variableText').text('No player found with that name.');</script>";
+            echo "<script>$('#variableText').css('color','red');</script>";
+        } 
+        else {
+            echo "<script>$('.centrado960').hide();</script>"; //if they come from a url with a player set -> don't display search input form
+            echo "<div id='information'>";
+        ?>
         <div id="playerResults">
             <div id="competitive">
                 <span class="title">Competitive</span>
@@ -128,6 +132,7 @@
             echo "</ul>";
         echo "</div>"; //information
         }
+    }
 
     	function requestAPI($url) { //funcion de cURL con sus opciones
     	    $options = array(
@@ -152,13 +157,11 @@
         }
     ?>
 
-    <div class="transparent" style="display:block;width:100%;height:400px"></div>
-
     <!-- Preloader -->
     <div class="preloader"></div>
 
     <!-- Mobile -->
-    <div class="scrollTop"></div>
+    <div class="scrollTop"><img src="img/arrow.png"></div>
     <div class="open-nav"><img src="img/nav.png"></div>
     <div class="close-nav"><img src="img/close-nav.png"></div>
 

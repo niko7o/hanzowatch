@@ -61,6 +61,8 @@ table {
     width:960px;
 }
 
+.open-nav, .close-nav, .scrollTop {display:none;}
+
 .centrado960 {
     display:block;
     margin:0 auto;
@@ -345,7 +347,7 @@ textarea:focus, input:focus{
        overflow-x:hidden;
     }
 
-    ul, li {width:100%;}
+    ul, li {width:100%;transition:0.35s all;}
 
     .scrollTop:hover, .open-nav:hover, .close-nav:hover {cursor:pointer;}
 
@@ -435,21 +437,39 @@ textarea:focus, input:focus{
     }
 
     nav ul {
-        display:none;
         transition:0.35s all;
+        height:0px;
+    }
+
+    nav ul li {
+        opacity:0;
     }
 
     .scrollTop {
-        display:block;
+        display:block !important;
         position:fixed;
         bottom:10px;
         right:10px;
-        background-color: tomato;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         box-sizing: border-box;
     }
     
-    .close-nav {display:none;position:fixed;top:1em;right:1em;}
-    .open-nav {display:block;position:fixed;top:1em;right:1em;}
+    .open-nav {
+        display: block;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+
+    .close-nav {
+        display: none;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+        
+    nav div {display:block;height:0;}
+    
+    .transparent {display:none;}
 }
