@@ -20,8 +20,8 @@
             <ul>
                 <li><a href="index.php">Search</a></li>
                 <li><a href="/forums" target="_blank">Forums</a></li>
-                <li><a href="patchnotes.php">Patchnotes</a></li>
-                <li><a href="counters.php">Counters</a></li>
+                <li><a href="/patchnotes/index.php">Patchnotes</a></li>
+                <li><a href="/counters/index.php">Counters</a></li>
             </ul>
         </div>
     </nav>
