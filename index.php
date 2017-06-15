@@ -13,7 +13,6 @@
 </head>
     
 <body>
-
     <!-- Navigation -->
     <nav>
         <img src="img/logo.png" id="logo" alt="Hanzowatch" />

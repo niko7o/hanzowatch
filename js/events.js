@@ -7,10 +7,11 @@ $(document).ready(function() {
 	    	method: "GET",
 	    	crossDomain: true,
 	    	contentType: "application/json",
-	    	url: 'https://www.codeniko.com/index.php?player='+player,
-    		dataType: 'jsonp',
+	    	url: 'https://crossorigin.me/https://www.codeniko.com/index.php?player='+player, //we use crossorigin + our domain to avoid CORS redirect errors
+    		dataType: 'json',
 	    	success: function(data){
 	        	$('.preloader').css('display','none'); //once the data is returned, we hide our preloader
+	        	console.log(data);
 	    	}
 	    });
 	});
