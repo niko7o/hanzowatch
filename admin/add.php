@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Add Data</title>
+	<title>Add Counter</title>
 </head>
 
 <body>

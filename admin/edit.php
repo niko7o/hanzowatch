@@ -1,6 +1,5 @@
 <?php
-// including the database connection file
-include_once("config.php");
+include_once("config.php");// including the database connection file
 
 if(isset($_POST['update'])){	
 	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
@@ -19,10 +18,8 @@ if(isset($_POST['update'])){
 ?>
 <?php
 
-//getting id from url
-$id = $_GET['id'];
-//selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM counters WHERE id=$id");
+$id = $_GET['id'];//getting id from url
+$result = mysqli_query($mysqli, "SELECT * FROM counters WHERE id=$id");//selecting data associated with this particular id
 
 while($res = mysqli_fetch_array($result)){
 	$id = $res['id'];
@@ -32,13 +29,16 @@ while($res = mysqli_fetch_array($result)){
 }
 
 ?>
+
 <html>
 <head>	
-	<title>Edit Data</title>
+	<title>Edit Counter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 
 <body>
-	<a href="index.php">Home</a>
+	<a href="index.php"><button style="padding:10px 20px;">Home</button></a>
 	<br/><br/>
 	
 	<form name="form1" method="post" action="edit.php">

@@ -18,10 +18,10 @@
         <img src="img/logo.png" id="logo" alt="Hanzowatch" />
         <div>
             <ul>
-                <li><a href="index.php">Search</a></li>
+                <li><a href="/">Search</a></li>
                 <li><a href="/forums" target="_blank">Forums</a></li>
                 <li><a href="https://playoverwatch.com/en-us/game/patch-notes/pc/" target="_blank">Patchnotes</a></li>
-                <li><a href="/counters/index.php">Counters</a></li>
+                <li><a href="/counters">Counters</a></li>
             </ul>
         </div>
     </nav>
