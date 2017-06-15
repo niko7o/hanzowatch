@@ -49,7 +49,7 @@
     
     <!-- Image below form-->
     <div class="heroes">
-        <img src="img/heroes.png" alt="Overwatch heroes"/>
+        <img src="img/heroes.png" alt="Overwatch heroes">
     </div>
 
 <?php
@@ -132,7 +132,7 @@
                     $champion++; //we have printed all the info for that actual champìon, let's go to the next one
                 } else { 
                     //the hero has no data so we don't show the div
-                    echo "<li class='hero' id=".$champion." style='display:none'></li>";
+                    echo "";
                 }
             }
             echo "</ul>";

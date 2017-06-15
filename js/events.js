@@ -6,7 +6,8 @@ $(document).ready(function() {
 	    $.ajax({
 	    	method: "GET",
 	    	crossDomain: true,
-	    	url: 'http://www.codeniko.com/index.php?player='+player,
+	    	contentType: "application/json",
+	    	url: 'https://www.codeniko.com/index.php?player='+player,
     		dataType: 'jsonp',
 	    	success: function(data){
 	        	$('.preloader').css('display','none'); //once the data is returned, we hide our preloader
