@@ -148,7 +148,7 @@ nav ul li {
 
 footer {
     height:100px;
-    background-color:lightgray;
+    background-color:white;
     text-align:center;
 }
 
@@ -321,6 +321,34 @@ textarea:focus, input:focus{
 
 #reinhardt #avatar {background-image:url('../img/champions/reinhardt.jpg');background-repeat:no-repeat;background-position:center;}
 #tracer #avatar {background-image:url('../img/champions/tracer.jpg');background-repeat:no-repeat;background-position:center;}
+#zenyatta #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/zenyatta-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#junkrat #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/junkrat-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#mccree #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/mccree-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#winston #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/winston-gameplay.jpg');background-repeat:no-repeat;background-position:34%;}
+#orisa #avatar {background-image:url('https://blogs-images.forbes.com/erikkain/files/2017/03/orisa.jpg');background-repeat:no-repeat;background-position:34%;}
+#hanzo #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/hanzo-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#pharah #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/pharah-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#roadhog #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/roadhog-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#zarya #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/zarya-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#torbjorn #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/torbjorn-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#mercy #avatar {background-image:url('https://fenixbazaar.com/wp-content/uploads/2017/04/mercy3.jpg');background-repeat:no-repeat;background-position:60%;}
+#mei #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/mei-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#ana #avatar {background-image:url('http://geekgamestore.com/wp-content/uploads/2016/08/neon_0001_large.jpg');background-repeat:no-repeat;background-position:center;}
+#widowmaker #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/widowmaker-gameplay.jpg');background-repeat:no-repeat;background-position:62%;}
+#genji #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/genji-gameplay.jpg');background-repeat:no-repeat;background-position:64%;}
+#reaper #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/reaper-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#soldier76 #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/soldier-76-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#bastion #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/bastion-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#symmetra #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/symmetra-gameplay.jpg');background-repeat:no-repeat;background-position:74%;}
+#dva #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/dva-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+#lucio #avatar {background-image:url('https://blzgdapipro-a.akamaihd.net/media/thumbnail/lucio-gameplay.jpg');background-repeat:no-repeat;background-position:center;}
+
+footer {
+    width: 960px;
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+}
 
 /* Preloader */
 
@@ -484,4 +512,6 @@ textarea:focus, input:focus{
     nav div {display:block;height:0;}
     
     .transparent {display:none;}
+
+    footer {width:100%;}
 }

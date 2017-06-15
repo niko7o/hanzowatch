@@ -65,7 +65,7 @@
     if(isset($player)){ // do we have a battletag to search for?
         if(count($data->$region->stats)==0){ // if he hasn't played a single game he won't have stats -> ERROR
             echo "<script>$('.centrado960').css('display','block !important');</script>";
-            echo "<script>$('#variableText').text('No player found with that name.');</script>";
+            echo "<script>$('#variableText').text('No data found with that name.');</script>";
             echo "<script>$('#variableText').css('color','red');</script>";
         } 
         else {
@@ -121,9 +121,9 @@
                                 echo "<p style='color:orange'> K/D: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations_per_life."</p>";
                                 echo "<p> Most damage: ". $data->$region->heroes->stats->competitive->$champion->general_stats->damage_done_most_in_game."</p>";
 
-                                echo "<p> Eliminations: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations."</p>";
-                                echo "<p> Deaths: ".$data->$region->heroes->stats->competitive->$champion->general_stats->deaths."</p>";
-                                echo "<p> Total damage: ".$data->$region->heroes->stats->competitive->$champion->general_stats->damage_done."</p>";
+                                echo "<p> Tournaments: ".$data->$region->heroes->stats->competitive->$champion->general_stats->eliminations."</p>";
+                                echo "<p> Neared: ".$data->$region->heroes->stats->competitive->$champion->general_stats->deaths."</p>";
+                                echo "<p> Comebacks: ".$data->$region->heroes->stats->competitive->$champion->general_stats->damage_done."</p>";
                                 echo "<p> Win ratio: ". 100*$data->$region->heroes->stats->competitive->$champion->general_stats->win_percentage."%</p>";
                             echo "</div>";
                         echo "</div>";
@@ -161,6 +161,10 @@
             return $content;
         }
     ?>
+
+    <footer>
+        <p style="text-align:center">Coded with ♥ by Nikoto</p>
+    </footer>
 
     <!-- Preloader -->
     <div class="preloader"></div>
