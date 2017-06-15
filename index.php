@@ -70,6 +70,7 @@
             echo "<script>$('#variableText').css('color','red');</script>";
         } 
         else {
+            echo "<h1 style='text-align:center;font-size:40px'>".$player."</h1>";
             echo "<script>$('.centrado960').hide();</script>"; //if they come from a url with a player set -> don't display search input form
             echo "<div id='information'>";
         ?>
