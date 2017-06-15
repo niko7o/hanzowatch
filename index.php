@@ -54,7 +54,6 @@
 <?php
     $response = requestAPI("http://owapi.net/api/v3/u/".$player."/blob"); // cURL call to the owAPI
     $response = json_decode($response); // decode the json object received from requestAPI
-    
 	$data = $response; // assign the object to our $data variable
 
     // shorten the variables with route shortcuts
