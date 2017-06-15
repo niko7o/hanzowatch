@@ -65,7 +65,8 @@
 	$quickplay_game_stats = $data->$region->stats->quickplay->game_stats;
 
     if(isset($player)){ // do we have a battletag to search for?
-        if($quickplay_overall_stats->games == ''){ // if he hasn't played a single game he won't have stats -> ERROR
+        if(count($data->$region->stats)==0){ // if he hasn't played a single game he won't have stats -> ERROR
+            echo "<script>$('.centrado960').css('display','block !important');</script>";
             echo "<script>$('#variableText').text('No player found with that name.');</script>";
             echo "<script>$('#variableText').css('color','red');</script>";
         } 
@@ -104,6 +105,7 @@
 
             echo "<ul id='hero-stats'>";
             foreach ($champions as $champion) {
+                if(count($data->$region->heroes->stats->competitive->$champion)==1 && count($data->$region->heroes->stats->quickplay->$champion)==1){ // check if the user PLAYED the champion
                     echo "<li class='hero' id=".$champion.">";
                         echo "<div>";
                             echo "<div id='avatar'></div>";
@@ -127,7 +129,11 @@
                             echo "</div>";
                         echo "</div>";
                     echo "</li>";
-                $champion++; //we have printed all the info for champìon, let's go to the next one
+                    $champion++; //we have printed all the info for that actual champìon, let's go to the next one
+                } else { 
+                    //the hero has no data so we don't show the div
+                    echo "<li class='hero' id=".$champion." style='display:none'></li>";
+                }
             }
             echo "</ul>";
         echo "</div>"; //information
